@@ -1099,38 +1099,6 @@ body {
 }
 .secondary-btn:hover {
   background: #333;
-}/* 1. Ensure the body and main containers fit the screen */
-body, html {
-  margin: 0;
-  padding: 0;
-  width: 100vw;
-  min-height: 100vh;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background: #23243a;
-}
-
-/* 2. Make cards and containers flexible */
-.dashboard-container, .card, .table-card {
-  max-width: 100%;
-  box-sizing: border-box;
-}
-
-/* 3. Responsive grid for dashboard cards */
-.dashboard-cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1em;
-  justify-content: center;
-}
-
-.card {
-  flex: 1 1 200px;
-  min-width: 140px;
-  max-width: 320px;
-  margin: 0.5em;
-  padding: 1.2em;
-  border-radius: 1em;
   background: #23243a;
   color: #fff;
   box-shadow: 0 2px 12px rgba(0,0,0,0.13);
@@ -1216,4 +1184,245 @@ footer a, .footer-links a {
 }
 footer a:hover, .footer-links a:hover {
   text-decoration: underline;
+}
+
+/* General mobile-friendly adjustments */
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Responsive container */
+.dashboard-container {
+  padding: 1rem;
+  max-width: 100vw;
+  overflow-x: auto;
+}
+
+/* Example for tables */
+.dashboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+}
+
+@media (max-width: 600px) {
+  .dashboard-table,
+  .dashboard-table thead,
+  .dashboard-table tbody,
+  .dashboard-table th,
+  .dashboard-table td,
+  .dashboard-table tr {
+    display: block;
+    width: 100%;
+  }
+  .dashboard-table tr {
+    margin-bottom: 1rem;
+  }
+  .dashboard-table td, .dashboard-table th {
+    padding: 0.5rem;
+    text-align: left;
+    border: none;
+  }
+  /* Optional: add labels to each cell using data-label attribute */
+  .dashboard-table td:before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: block;
+  }
+}
+
+.dashboard-row, .dashboard-sections, .dashboard-cards {
+  display: flex;
+  gap: 1rem;
+}
+
+@media (max-width: 800px) {
+  .dashboard-row, .dashboard-sections, .dashboard-cards {
+    flex-direction: column !important;
+    gap: 0.5rem;
+    align-items: stretch;
+  }
+  .dashboard-card, .dashboard-section, .dashboard-widget {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100vw !important;
+  }
+}
+
+@media (max-width: 800px) {
+  .dashboard-card, .dashboard-widget, .dashboard-section {
+    width: 100% !important;
+    margin: 0 !important;
+    min-width: 0 !important;
+    max-width: 100vw !important;
+  }
+}
+
+
+@media (max-width: 600px) {
+  body, .dashboard-table, .dashboard-card, .dashboard-widget {
+    font-size: 1.1rem;
+  }
+}
+
+.sidebar {
+  width: 220px;
+  min-height: 100vh;
+  background: #23243a;
+  position: fixed;
+  left: 0;
+  top: 0;
+  transition: transform 0.3s;
+  z-index: 100;
+}
+
+@media (max-width: 800px) {
+  .sidebar {
+    position: fixed;
+    width: 70vw;
+    max-width: 320px;
+    min-width: 180px;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.2);
+  }
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  .dashboard-main {
+    margin-left: 0 !important;
+  }
+  .sidebar-toggle {
+    display: block;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 200;
+    background: #23243a;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+  }
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: row;
+}
+
+.dashboard-main {
+  margin-left: 220px; /* default sidebar width */
+  width: 100%;
+  transition: margin-left 0.3s;
+}
+
+@media (max-width: 800px) {
+  .dashboard {
+    flex-direction: column;
+  }
+  .dashboard-main {
+    margin-left: 0 !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    min-width: 0 !important;
+    padding: 0.5rem !important;
+  }
+}
+.sidebar-overlay {
+  display: none;
+}
+@media (max-width: 800px) {
+  .sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.3);
+    z-index: 99;
+  }
+  .sidebar.open ~ .sidebar-overlay {
+    display: block;
+  }
+}
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+@media (max-width: 700px) {
+  .user-table, .user-table thead, .user-table tbody, .user-table th, .user-table td, .user-table tr {
+    display: block;
+    width: 100%;
+  }
+  .user-table tr {
+    margin-bottom: 1rem;
+  }
+  .user-table td, .user-table th {
+    padding: 0.5rem;
+    text-align: left;
+    border: none;
+  }
+  .user-table td:before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: block;
+  }
+  .user-table thead {
+    display: none;
+  }
+}
+
+/* Add to style.css for status dots and table polish */
+.status-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+.status-dot.healthy { background: #43e97b; }
+.status-dot.unhealthy { background: #ff5c5c; }
+.status-dot.unknown { background: #ffd700; }
+
+/* OCD: Table section padding and headline */
+#servers-section {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem 1rem;
+  background: #23243a;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px #0003;
+}
+#servers-section h2 {
+  color: #5cc3ff;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+/* OCD: Table header sticky on desktop */
+@media (min-width: 701px) {
+  .user-table thead th {
+    position: sticky;
+    top: 0;
+    background: #1a1e36;
+    z-index: 2;
+  }
+}
+
+/* OCD: Responsive tweaks for table on mobile */
+@media (max-width: 700px) {
+  #servers-section {
+    padding: 1rem 0.2rem;
+  }
+  .user-table td {
+    border-radius: 8px;
+    background: #23284a;
+    margin-bottom: 0.5rem;
+  }
 }

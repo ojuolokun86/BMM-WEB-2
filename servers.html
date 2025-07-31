@@ -9,21 +9,35 @@
 <body>
   <section id="servers-section">
     <h2>Bot Servers</h2>
-    <table class="user-table">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Name</th>
-          <th>ID</th>
-          <th>URL</th>
-          <th>Healthy</th>
-          <th>Load</th>
-          <th>User Count</th>
-          <th>Last Seen</th>
-        </tr>
-      </thead>
-      <tbody id="serversTableBody"></tbody>
-    </table>
+    <div class="table-responsive">
+      <table class="user-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>ID</th>
+            <th>URL</th>
+            <th>Healthy</th>
+            <th>Load</th>
+            <th>User Count</th>
+            <th>Last Seen</th>
+          </tr>
+        </thead>
+        <tbody id="serversTableBody">
+          <!-- Example static row for OCD reference; JS will fill dynamically -->
+          <tr>
+            <td data-label="#">1</td>
+            <td data-label="Name">Main Server</td>
+            <td data-label="ID">srv-001</td>
+            <td data-label="URL">https://server1.example.com</td>
+            <td data-label="Healthy"><span class="status-dot healthy"></span> Yes</td>
+            <td data-label="Load">0.23</td>
+            <td data-label="User Count">42</td>
+            <td data-label="Last Seen">2025-07-31 13:20</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </section>
   <script type="module" src="servers.js"></script>
 </body>
