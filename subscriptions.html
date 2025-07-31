@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Subscriptions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section id="subs-section">
+    <h2>Manage User Subscriptions</h2>
+    <form id="subscribeForm" class="card" style="margin-bottom:2em;">
+      <label>
+        User Auth ID:
+        <input type="text" name="user_auth_id" required>
+      </label>
+      <label>
+        Plan:
+        <select name="plan" required>
+          <option value="free">Free</option>
+          <option value="basic">Basic</option>
+          <option value="gold">Gold</option>
+          <option value="premium">Premium</option>
+        </select>
+      </label>
+      <label>
+        Duration (days):
+        <input type="number" name="duration_days" min="1" value="30" required>
+      </label>
+      <button type="submit">Subscribe</button>
+    </form>
+    <h3>Current Subscriptions</h3>
+    <table class="user-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>User Auth ID</th>
+          <th>Plan</th>
+          <th>Expires</th>
+          <th>Created</th>
+        </tr>
+      </thead>
+      <tbody id="subsTableBody"></tbody>
+    </table>
+  </section>
+  <script type="module" src="subscriptions.js"></script>
+</body>
+</html>

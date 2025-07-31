@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>BMM Admin Dashboard</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="dashboard">
+    <aside class="sidebar">
+      <h2>BMM Admin</h2>
+      <nav>
+        <a href="#">Dashboard</a>
+        <a href="#" id="viewAllUsersBtn">Users</a>
+        <a href="bots.html" id="botsTabLink">Bots</a>
+        <a href="subscriptions.html">Subscriptions</a>
+        <a href="servers.html">Servers</a>
+        <a href="settings.html">Settings</a>
+      </nav>
+    </aside>
+    <main class="main-content">
+      <section class="stats-cards">
+        <div class="card stat-card orange">
+          <h3>Total Users</h3>
+          <div class="stat-value" id="totalUsersStat">-</div>
+        </div>
+        <div class="card stat-card green">
+          <h3>Active Sessions</h3>
+          <div class="stat-value" id="activeSessionsStat">-</div>
+        </div>
+        <div class="card stat-card red">
+          <h3>Failed Logins</h3>
+          <div class="stat-value" id="failedLoginsStat">-</div>
+        </div>
+        <div class="card stat-card blue">
+          <h3>Healthy Servers</h3>
+          <div class="stat-value" id="healthyServersStat">-</div>
+        </div>
+      </section>
+      <section class="charts-row">
+        <div class="card chart-card">
+          <h4>Usage Over Time</h4>
+          <canvas id="usageChart"></canvas>
+        </div>
+        <div class="card chart-card">
+          <h4>Subscription Breakdown</h4>
+          <canvas id="subscriptionChart"></canvas>
+        </div>
+        <div class="card chart-card">
+          <h4>Server Load</h4>
+          <canvas id="serverLoadChart"></canvas>
+        </div>
+      </section>
+      <section class="tables-row">
+        <div class="card table-card">
+          <h4>Recent Users</h4>
+          <table>
+            <thead>
+              <tr><th>Email</th><th>Plan</th><th>Date Joined</th></tr>
+            </thead>
+            <tbody id="recentUsersTableBody"></tbody>
+          </table>
+        </div>
+        <div class="card table-card">
+          <h4>Recent Bot Activity</h4>
+          <table>
+            <thead>
+              <tr><th>User</th><th>Bot</th><th>Action</th><th>Time</th></tr>
+            </thead>
+            <tbody id="recentBotActivityTableBody"></tbody>
+          </table>
+        </div>
+        <div class="card table-card">
+          <h4>Failed Logins</h4>
+          <table>
+            <thead>
+              <tr><th>User</th><th>Time</th><th>Reason</th></tr>
+            </thead>
+            <tbody id="failedLoginsTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+      <section style="margin-top: 32px;">
+        <h2>Manual User Subscription</h2>
+        <div style="display: flex; gap: 1rem; align-items: center;">
+          <input type="text" id="manual-auth-id" placeholder="Enter Auth ID" style="padding: 6px; width: 200px;">
+          <select id="manual-plan" style="padding: 6px;">
+            <option value="free">Free</option>
+            <option value="basic">Basic</option>
+            <option value="gold">Gold</option>
+            <option value="premium">Premium</option>
+          </select>
+          <button id="manual-subscribe-btn" class="primary-btn">Subscribe</button>
+        </div>
+        <div id="manual-subscribe-result" style="margin-top: 10px; color: #0f0;"></div>
+      </section>
+      <footer class="dashboard-footer">
+        <small>&copy; 2025 BMM Techitoon. All rights reserved.</small>
+      </footer>
+    </main>
+  </div>
+  <script type="module" src="adminPage.js"></script>
+</body>
+</html>

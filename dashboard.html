@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BMM DEV V2 - Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <div class="dashboard-container">
+    <!-- HEADER SECTION -->
+    <header class="dashboard-header">
+      <h1 class="title">👋 Welcome, <span id="greet">User</span>!</h1>
+      <div id="userInfo" class="user-info">
+        <p><strong>Email:</strong> <span id="userEmail">-</span></p>
+        <p><strong>Auth ID:</strong> <span id="userAuthId">-</span></p>
+        <p><strong>Subscription:</strong> <span id="userSubLevel">-</span></p>
+        <p><strong>Days Left:</strong> <span id="userDaysLeft">-</span></p>
+        <p><strong>IP Address:</strong> <span id="userIP">Fetching...</span></p>
+        <p><strong>System Info:</strong> <span id="systemInfo">Loading...</span></p>
+        <p><strong>Battery:</strong></p>
+        <div id="batteryBar" style="width:100%;max-width:220px;margin:8px 0 18px 0;"></div>
+        <p><strong>Location:</strong> <span id="location">Loading...</span></p>
+        <div id="locationMap" style="width:100%;margin:8px 0 18px 0;"></div>
+
+
+
+      </div>
+    </header>
+
+    <!-- ACTIONS -->
+    <section class="dashboard-actions">
+      <button id="deployBtn" class="primary-btn">🚀 Deploy New Bot</button>
+      <a href="index.html" class="logout-btn">🔓 Logout</a>
+    </section>
+
+    <!-- BOT LIST SECTION -->
+    <section id="botList" class="bot-list-section">
+      <h2 class="section-title">🤖 Your Bots</h2>
+      <div id="botListContainer">
+        <p class="placeholder">Loading bots...</p>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer style="margin-top: 32px; text-align: center; color: #888;">
+      <a href="about.html">About</a> | 
+      <a href="terms.html">Terms &amp; Privacy</a>
+    </footer>
+  </div>
+  <script type="module" src="dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Deploy Your BMM Bot</title>
+  <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="dashboard-card">
+    <h2>Deploy Your Bot</h2>
+    <form id="deployForm" autocomplete="off">
+      <div class="deploy-form-group">
+        <label class="deploy-label" for="countryDropdown">Country:</label>
+        <div id="countryDropdown" class="custom-dropdown">
+          <div id="dropdownToggle" class="dropdown-toggle">Select Country</div>
+          <ul id="dropdownList" class="dropdown-list">
+            <li class="search-box">
+              <input type="text" id="countrySearch" placeholder="Search country..." />
+            </li>
+            <!-- Country list items will go here -->
+          </ul>
+        </div>
+        <input type="hidden" id="countryCode" name="country" required>
+      </div>
+      <div class="deploy-form-group">
+        <label class="deploy-label" for="phoneNumber">Phone Number:</label>
+        <input type="tel" id="phoneNumber" class="deploy-input" placeholder="Enter phone number" required>
+      </div>
+      <div class="pairing-method-group">
+        <span class="pairing-method-label">Pairing Method:</span>
+        <div class="pairing-method-options">
+            <label class="pairing-method-card selected">
+            <input type="radio" name="pairingMethod" value="pairingCode" checked>
+            <span class="pairing-method-icon">🔑</span>
+            <span class="pairing-method-title">Pairing Code</span>
+            </label>
+            <label class="pairing-method-card">
+            <input type="radio" name="pairingMethod" value="qrCode">
+            <span class="pairing-method-icon">📱</span>
+            <span class="pairing-method-title">QR Code</span>
+            </label>
+        </div>
+        </div>
+        <button class="btn-action" type="submit">Deploy Bot</button>
+    </form>
+
+    <!-- Status/News area -->
+    <div id="deployStatus" class="deploy-status"></div>
+
+    <!-- QR/Pairing code area -->
+    <div id="qrPairingArea" class="qr-pairing-area"></div>
+
+    <a href="dashboard.html">Back to Dashboard</a>
+  </div>
+  <script type="module" src="deploy.js"></script>
+</body>
+</html>

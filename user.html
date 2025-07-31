@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>All Registered Users</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="dashboard-container">
+    <header class="dashboard-header">
+      <h1>👑 Welcome, Admin!</h1>
+      <div id="adminInfo"></div>
+      <a href="adminPage.html" class="primary-btn">⬅️ Back to Admin</a>
+      <div>
+        <h2>
+          All Registered Users
+          <span id="userCount" style="font-size:1rem;color:#7fff7f;"></span>
+        </h2>
+        <table id="userListTable" class="user-table">
+          <!-- ... -->
+        </table>
+      </div>
+      <div>
+        <h2>All Registered Users</h2>
+        <table id="userListTable" class="user-table">
+          <thead>
+            <tr>
+              <th>Email</th>
+              <th>Auth ID</th>
+              <th>Plan</th>
+              <th>Days Left</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="userListContainer"></tbody>
+        </table>
+      </div>
+    </header>
+    <section>
+      <div id="userListContainer"></div>
+    </section>
+    <footer class="dashboard-footer">
+      <small>&copy; 2025 BMM Techitoon. All rights reserved.</small>
+    </footer>
+  </div>
+  <script type="module" src="user.js"></script>
+</body>
+</html>

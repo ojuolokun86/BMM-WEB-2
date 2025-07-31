@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BMM DEV V2 WEB PAGE </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .brand-logo {
+      display: block;
+      margin: 0 auto 16px auto;
+      max-width: 120px;
+    }
+    .intro-section {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .features-list {
+      margin: 0 auto 32px auto;
+      max-width: 350px;
+      padding: 0;
+      list-style: none;
+      color: #2d7cff;
+      font-size: 1.05rem;
+    }
+    .features-list li {
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .features-list li::before {
+      content: "✔️";
+      color: #27ae60;
+      margin-right: 6px;
+    }
+    .dashboard-card {
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      border-radius: 16px;
+      background: #222846;
+      padding: 32px 24px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    @media (max-width: 600px) {
+      .dashboard-card { padding: 18px 4px; }
+      .features-list { font-size: 0.98rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="intro-section">
+    <img src="image/TECHITOON BOT_ Evolving Intelligence 2.png" alt="Techitoon Bot Logo" class="brand-logo">
+    <h1 style="color:#2d7cff; margin-bottom: 6px;">Techitoon Bot BMM</h1>
+    <p style="color:#6be585; font-size:1.15rem; margin-bottom: 8px;">
+      Your All-in-One WhatsApp Automation Platform
+    </p>
+    <ul class="features-list">
+      <li>Multi-bot, multi-user dashboard</li>
+      <li>Group management &amp; automation</li>
+      <li>Subscription &amp; usage analytics</li>
+      <li>Fun commands, anti-link, and more</li>
+      <li>Secure &amp; privacy-focused</li>
+    </ul>
+  </div>
+  <div class="dashboard-card">
+    <h2 style="color:#6be585;">Login</h2>
+    <form id="loginForm">
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button class="btn-primary" type="submit">Login</button>
+    </form>
+    <div id="loginMessage"></div>
+    <a href="register.html">Register</a>
+    <div style="margin-top: 16px;">
+      <a href="about.html">About</a> | 
+      <a href="terms.html">Terms &amp; Privacy</a>
+    </div>
+  </div>
+  <footer style="margin-top: 32px; text-align: center; color: #888;">
+    &copy; <span id="year"></span> Techitoon Team. All rights reserved.
+  </footer>
+  <script type="module" src="index.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
