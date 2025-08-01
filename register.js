@@ -4,10 +4,11 @@ document.getElementById('registerForm').addEventListener('submit', async (e) => 
   e.preventDefault();
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
+  const confirmPassword = document.getElementById('confirmPassword').value;
   const res = await fetch(`${API_BASE_URL}/api/register`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email, password })
+    body: JSON.stringify({ email, password, confirmPassword })
   });
   const data = await res.json();
   document.getElementById('registerMessage').textContent = data.message;
